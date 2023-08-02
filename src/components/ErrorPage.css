@@ -1,0 +1,15 @@
+.error_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 120px;
+}
+.error_container h3{
+    margin: 0px;
+}
+.error_container a{
+    color: red;
+    text-decoration: none;
+}

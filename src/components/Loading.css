@@ -1,0 +1,9 @@
+.loading_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.loading_container p{
+    position: fixed;
+    top: 130px;
+}

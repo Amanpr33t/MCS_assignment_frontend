@@ -1,0 +1,94 @@
+.task_outer_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.task_form {
+    margin-top: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    width: 400px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.date_selector,
+.task_form form {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 100%;
+    margin-left: -1px;
+}
+
+.text_input {
+    width: 100%;
+    outline: none;
+    resize: none;
+    border: 1px solid grey;
+    padding: 0px;
+}
+
+.task_form form label,
+.date_label {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.task_form form p,.date_selector p {
+    color: red;
+    margin: 0px
+}
+
+.blur {
+    filter: blur(3px);
+}
+
+.task_button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.task_button button {
+    font-size: 15px;
+    padding: 5px 2px 5px 2px;
+    font-weight: 600;
+}
+
+.task_button button:hover {
+    cursor: pointer;
+}
+.date_picker{
+    width: 166px;
+}
+
+.back_home{
+    width: 100%;
+    position: fixed;
+    top: 60px;
+    height: 50px;
+    background-color: white;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+.back_home button{
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 3px;
+    color: white;
+    margin-left: 10px;
+}
+.back_home button:hover{
+    cursor: pointer;
+}
+@media screen and (max-width:434px) {
+    
+}

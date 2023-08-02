@@ -1,0 +1,179 @@
+.task_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 145px;
+    z-index: 0;
+}
+
+.completion_date {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.blur {
+    filter: blur(5px);
+}
+
+.task_body {
+    position: relative;
+    width: 400px;
+    background-color: rgb(234, 208, 234);
+    margin-bottom: 50px;
+    border-radius: 5px;
+}
+
+.task-status {
+    position: absolute;
+    top: -43px;
+    left: 0px;
+    background-color: greenyellow;
+    padding: 3px;
+    color:white;
+    border-radius: 5px;
+}
+
+.task-content {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 23px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.completion_date p {
+    margin-top: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 16px;
+}
+
+.completion_date p:nth-child(1) {
+    font-weight: 600;
+}
+.completion_date p:nth-child(2) {
+    font-weight: 400;
+}
+
+.task_body input {
+    position: absolute;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+}
+
+.task_body input:hover {
+    cursor: pointer;
+}
+
+.task-update {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.task-update button:hover {
+    cursor: pointer;
+}
+
+.delete_tasks {
+    position: fixed;
+    top: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.delete_tasks button {
+    background-color: gray;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 3px;
+    color: white;
+}
+
+.delete_tasks button:hover {
+    cursor: pointer;
+}
+
+.no_tasks {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.no_tasks p {
+    position: fixed;
+    top: 130px;
+}
+
+.task-update button:nth-child(3) {
+    background-color: green;
+}
+
+.task-update button:nth-child(4) {
+    background-color: red;
+}
+
+.task-update button:nth-child(4),
+.task-update button:nth-child(3) {
+    color: white;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+}
+.completed{
+    background-color: green;
+}
+.delayed{
+    background-color: red;
+}
+.pending{
+    background-color: orange;
+}
+.cancelled{
+    background-color: gray;
+}
+.add_tasks{
+    width: 100%;
+    position: fixed;
+    top: 60px;
+    height: 50px;
+    background-color: white;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+.add_tasks button{
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 3px;
+    color: white;
+    margin-left: 10px;
+}
+.add_tasks button:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width:440px) {
+    .task_body {
+        width: 100%;
+    }
+
+    .task_container {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
