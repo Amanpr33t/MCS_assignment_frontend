@@ -22,16 +22,19 @@
     background-color: rgb(234, 208, 234);
     margin-bottom: 50px;
     border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .task-status {
     position: absolute;
-    top: -43px;
+    top: -27px;
     left: 0px;
-    background-color: greenyellow;
+    background-color: rgb(177, 233, 94);
     padding: 3px;
-    color:white;
+    color: white;
     border-radius: 5px;
+    margin-bottom: 0px;
 }
 
 .task-content {
@@ -42,25 +45,36 @@
     font-weight: 400;
 }
 
-.completion_date p {
+.task_body h3 {
+    margin: 0px;
+    padding-left: 5px;
+}
+
+
+.completion_date p,
+.task_body p {
     margin-top: 0px;
     padding-left: 5px;
     padding-right: 5px;
     font-size: 16px;
 }
 
-.completion_date p:nth-child(1) {
-    font-weight: 600;
+.completion_date h3{
+    margin: 0px;
 }
+
 .completion_date p:nth-child(2) {
     font-weight: 400;
+    margin-bottom: 0px;
 }
+
 
 .task_body input {
     position: absolute;
     right: 0px;
     width: 20px;
     height: 20px;
+    top: 0px;
 }
 
 .task_body input:hover {
@@ -73,7 +87,7 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    margin-bottom: 10px;
+    margin-top: 15px;
 }
 
 .task-update button:hover {
@@ -93,7 +107,7 @@
 }
 
 .delete_tasks button {
-    background-color: gray;
+    background-color: rgb(219, 46, 46);
     border: none;
     border-radius: 5px;
     font-size: 18px;
@@ -117,11 +131,11 @@
 }
 
 .task-update button:nth-child(3) {
-    background-color: green;
+    background-color: rgb(54, 169, 54);
 }
 
 .task-update button:nth-child(4) {
-    background-color: red;
+    background-color: rgb(230, 49, 49);
 }
 
 .task-update button:nth-child(4),
@@ -132,19 +146,24 @@
     padding-bottom: 5px;
     border-radius: 5px;
 }
-.completed{
+
+.completed {
     background-color: green;
 }
-.delayed{
+
+.delayed {
     background-color: red;
 }
-.pending{
+
+.pending {
     background-color: orange;
 }
-.cancelled{
+
+.cancelled {
     background-color: gray;
 }
-.add_tasks{
+
+.add_tasks {
     width: 100%;
     position: fixed;
     top: 60px;
@@ -154,7 +173,8 @@
     display: flex;
     align-items: center;
 }
-.add_tasks button{
+
+.add_tasks button {
     background-color: green;
     border: none;
     border-radius: 5px;
@@ -163,9 +183,11 @@
     color: white;
     margin-left: 10px;
 }
-.add_tasks button:hover{
+
+.add_tasks button:hover {
     cursor: pointer;
 }
+
 
 @media screen and (max-width:440px) {
     .task_body {

@@ -58,6 +58,11 @@
     font-size: 15px;
     padding: 5px 2px 5px 2px;
     font-weight: 600;
+    background-color: rgb(57, 142, 57);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .task_button button:hover {
@@ -88,6 +93,9 @@
 }
 .back_home button:hover{
     cursor: pointer;
+}
+.content_label{
+    margin-top: 10px;
 }
 @media screen and (max-width:434px) {
     

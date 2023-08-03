@@ -10,7 +10,6 @@ import { ErrorActions } from '../store/slices/error-slice';
 import dateMaker from '../utils/dateMaker';
 
 function Body({ isAppClick, resetAppClick }) {
-
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [taskData, setTaskData] = useState()
@@ -22,6 +21,7 @@ function Body({ isAppClick, resetAppClick }) {
     useEffect(() => {
         dispatch(EditActions.setEdit({
             isEdit: false,
+            title:null,
             taskInfo: null,
             completionDate: null,
             taskId: null
@@ -166,6 +166,7 @@ function Body({ isAppClick, resetAppClick }) {
             {!isDeleteTasks && !isLoading && <div className='add_tasks'><button onClick={() => {
                 dispatch(EditActions.setEdit({
                     isEdit: false,
+                    title:null,
                     taskInfo: null,
                     completionDate: null,
                     taskId: null
@@ -185,9 +186,12 @@ function Body({ isAppClick, resetAppClick }) {
                         }} name="task_checkbox" onClick={() => {
                             setIsResetCheckBox(false)
                         }}></input>
+                        <h3 className='title_heading'>Title:</h3>
+                        <p>{task.title}</p>
+                        <h3>Description:</h3>
                         <p className='task-content'>{task.taskInfo}</p>
                         <div className='completion_date'>
-                            <p>Completion Date:</p>
+                            <h3>Completion Date:</h3>
                             <p>{dateMaker(task.completionDate)}</p>
                         </div>
                         {!isDeleteTasks && <div className='task-update'>
@@ -195,6 +199,7 @@ function Body({ isAppClick, resetAppClick }) {
                             {task.status !== 'completed' && task.status !== 'cancelled' && <><button onClick={() => {
                                 dispatch(EditActions.setEdit({
                                     isEdit: true,
+                                    title:task.title,
                                     taskInfo: task.taskInfo,
                                     completionDate: task.completionDate,
                                     taskId: task._id

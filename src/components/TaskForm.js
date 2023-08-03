@@ -19,6 +19,8 @@ function TaskForm() {
     const [completionDate, setCompletionDate] = useState(new Date(Date.now() + 1000 * 60 * 60 * 24));
     const [content, setContent] = useState('')
     const [isContentBlur, setIsContentBlur] = useState(false)
+    const [title, setTitle] = useState('')
+    const [isTitleBlur, setIsTitleBlur] = useState(false)
     const [dateError, setDateError] = useState(false)
 
     useEffect(() => {
@@ -28,9 +30,10 @@ function TaskForm() {
     useEffect(() => {
         if (editInfo.isEdit) {
             setContent(editInfo.taskInfo)
+            setTitle(editInfo.title)
             setCompletionDate(Date.parse(editInfo.completionDate))
         }
-    }, [editInfo.isEdit, editInfo.taskInfo, editInfo.completionDate])
+    }, [editInfo.isEdit, editInfo.taskInfo, editInfo.completionDate, editInfo.title])
 
     useEffect(() => {
         if (completionDate > new Date()) {
@@ -43,12 +46,15 @@ function TaskForm() {
     const taskSubmit = async (e) => {
         e.preventDefault()
         if (content.trim().length === 0 || content.trim().length > 160) {
-            return setIsContentBlur(true)
+            setIsTitleBlur(true)
+            setIsContentBlur(true)
+            return
         }
         if (!dateError && (content.toString().trim().length < 160 || content.toString().trim().length > 0)) {
             dispatch(LoadingActions.setLoading(true))
             try {
                 const body = {
+                    title: title.toString(),
                     taskInfo: content.toString(),
                     completionDate
                 }
@@ -99,12 +105,21 @@ function TaskForm() {
                 <div className='task_outer_container'>
                     <div className="task_form">
                         <form >
-                            <label htmlFor="content">Content</label>
-                            <textarea style={{ 'fontSize': '18px' }} className="text_input" id="content" name="content" placeholder="Enter content here..." rows={7} value={content} onChange={(e) => {
+
+                            <label htmlFor="title">Title</label>
+                            <input style={{ 'fontSize': '18px' }} type="text" className="title_input" id="title" name="title" placeholder="Enter title here..." value={title} onChange={(e) => {
+                                setTitle(e.target.value.trimStart())
+                                setIsTitleBlur(false)
+                            }} onBlur={() => setIsTitleBlur(true)}></input>
+                            {isTitleBlur && (title.toString().trim().length > 50 || title.toString().trim().length === 0) && <p>{title.toString().trim().length > 50 ? 'Length of title should not be more than 50 characters' : 'Enter a title'}</p>}
+
+                            <label className="content_label" htmlFor="content">Content</label>
+                            <textarea style={{ 'fontSize': '18px' }} className="text_input" id="content" name="content" placeholder="Enter content here..." rows={5} value={content} onChange={(e) => {
                                 setContent(e.target.value.trimStart())
                                 setIsContentBlur(false)
                             }} onBlur={() => setIsContentBlur(true)}></textarea>
                             {isContentBlur && (content.toString().trim().length > 160 || content.toString().trim().length === 0) && <p>{content.toString().trim().length > 160 ? 'Length of content should not be more than 160 characters' : 'Enter some content'}</p>}
+
                         </form>
                         <div className="date_selector">
                             <div className="date_label">Completion Date</div>
